@@ -72,7 +72,7 @@ const SideDrawer = (props) => {
                                             navMenuOption.unselectedIcon
                                     }
                                 </ListItemIcon>
-                                <ListItemText primary={navMenuOption.label} />
+                                <ListItemText primary={navMenuOption.label} sx={{ "& .MuiListItemText-primary": { fontWeight: selectedNavItem === navMenuOptionIndex ? "800" : "400", color: selectedNavItem === navMenuOptionIndex ? "primary.dark" : "" } }} />
                             </ListItem>
                         );
                     })
