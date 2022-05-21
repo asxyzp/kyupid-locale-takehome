@@ -1,6 +1,7 @@
 // IMPORTING PACKAGES/MODULES
 import React from 'react';
-import { Box } from '@mui/material';
+import PositionedScreen from '../Custom/PositionedScreen';
+import { Typography } from '@mui/material';
 
 /**
  * @name Map
@@ -10,7 +11,9 @@ import { Box } from '@mui/material';
  */
 const Map = (props) => {
     return (
-        <Box>Maps</Box>
+        <PositionedScreen>
+            <Typography variant="h3">Map</Typography>
+        </PositionedScreen>
     );
 };
 

@@ -1,6 +1,7 @@
 // IMPORTING PACKAGES/MODULES
 import React from 'react';
-import { Box } from '@mui/material';
+import PositionedScreen from '../Custom/PositionedScreen';
+import { Typography } from '@mui/material';
 
 /**
  * @name Analytics
@@ -10,7 +11,9 @@ import { Box } from '@mui/material';
  */
 const Analytics = (props) => {
     return (
-        <Box>Analytics</Box>
+        <PositionedScreen>
+            <Typography variant="h3">Analytics</Typography>
+        </PositionedScreen>
     );
 };
 
