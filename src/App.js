@@ -1,12 +1,15 @@
 // IMPORTING PACKAGES/MODULES
-import React from 'react';
+import DarkTheme from './Theme/Dark';
 import LightTheme from './Theme/Light';
-import Map from './Components/Screens/Map';
-import About from './Components/Screens/About';
-import { Route, Switch } from 'react-router-dom';
-import Analytics from './Components/Screens/Analytics';
+import React, { useEffect } from 'react';
+import Map from './Components/Screen/Map';
+import About from './Components/Screen/About';
+import { Routes, Route } from 'react-router-dom';
+import { useAppContext } from './Context/AppContext';
+import Analytics from './Components/Screen/Analytics';
+import ModalRouter from './Components/Modal/ModalRouter';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import PageNotFound from './Components/Screens/PageNotFound';
+import PageNotFound from './Components/Screen/PageNotFound';
 
 /**
  * @name App
@@ -15,23 +18,25 @@ import PageNotFound from './Components/Screens/PageNotFound';
  */
 function App() {
 
+    // GETTING APP CONTEXT
+    const { darkMode, setModalType } = useAppContext();
+
+    // USING useEffect TO LOAD SPLASH SCREEN
+    useEffect(() => {
+        setModalType("splash");
+        window.setTimeout(() => { setModalType(""); }, 1750);
+    }, [setModalType]);
+
     return (
-        <ThemeProvider theme={LightTheme}>
+        <ThemeProvider theme={darkMode === true ? DarkTheme : LightTheme}>
             <CssBaseline />
-            <Switch>
-                <Route exact path="/">
-                    <Analytics />
-                </Route>
-                <Route exact path="/map">
-                    <Map />
-                </Route>
-                <Route exact path="/about">
-                    <About />
-                </Route>
-                <Route path="*">
-                    <PageNotFound />
-                </Route>
-            </Switch>
+            <ModalRouter />
+            <Routes>
+                <Route path="/" element={<Analytics />} />
+                <Route path="/map" element={<Map />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<PageNotFound />} />
+            </Routes>
         </ThemeProvider>
     );
 };
