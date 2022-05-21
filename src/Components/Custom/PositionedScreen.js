@@ -15,7 +15,7 @@ const PositionedScreen = (props) => {
     const { drawerWidth } = useAppContext();
 
     return (
-        <Box sx={{ height: "100%", width: `calc(100vw - ${drawerWidth})`, marginLeft: drawerWidth, }}>
+        <Box sx={{ p: "10px", height: "100%", width: `calc(100vw - ${drawerWidth})`, marginLeft: drawerWidth, }}>
             {props.children}
         </Box>
     );
