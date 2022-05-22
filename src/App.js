@@ -11,6 +11,10 @@ import ModalRouter from './Components/Modal/ModalRouter';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import PageNotFound from './Components/Screen/PageNotFound';
 
+// IMPORTING API ENDPOINT CALL METHODS
+import getAreas from './API/getAreas';
+import getUsers from './API/getUsers';
+
 /**
  * @name App
  * @description APP COMPONENT
@@ -19,13 +23,55 @@ import PageNotFound from './Components/Screen/PageNotFound';
 function App() {
 
     // GETTING APP CONTEXT
-    const { darkMode, setModalType } = useAppContext();
+    const { darkMode, setAreas, setUsers, setModalType } = useAppContext();
 
-    // USING useEffect TO LOAD SPLASH SCREEN
+    // METHODS
+    /**
+     * @name getAreaData
+     * @description CALLING API ENDPOINT USING getAreas METHOD
+     * @returns undefined
+     */
+    const getAreaData = () => {
+        getAreas()
+            .then(async (res) => {
+                if (res !== null && res.status === 200) {
+                    const AreaData = await res.json();
+                    setAreas([...AreaData.features]);
+                    console.log([...AreaData.features]);
+                }
+                // TODO: ADD ERROR HANDLER
+            });
+    };
+
+    /**
+     * @name getUserData
+     * @description CALLING API ENDPOINT USING getUsers METHOD
+     * @returns undefined
+     */
+    const getUserData = () => {
+        getUsers()
+            .then(async (res) => {
+                if (res !== null && res.status === 200) {
+                    const UserData = await res.json();
+                    setUsers([...UserData.users]);
+                    console.log(UserData.users);
+                }
+                // TODO: ADD ERROR HANDLER
+            });
+    };
+
+    // USING useEffect TO LOAD SPLASH SCREEN AND CALL API ENDPOINTS
     useEffect(() => {
+
+        // LOADING SPLASH SCREEN FOR 1.75 seconds
         setModalType("splash");
         window.setTimeout(() => { setModalType(""); }, 1750);
-    }, [setModalType]);
+
+        // CALLING API ENDPOINTS
+        getUserData();
+        getAreaData();
+
+    }, []);
 
     return (
         <ThemeProvider theme={darkMode === true ? DarkTheme : LightTheme}>
