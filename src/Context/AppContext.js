@@ -18,6 +18,8 @@ export const useAppContext = () => {
 const AppContext = (props) => {
 
     // SETTING STATES TO BE PASSED THROUGH CONTEXT
+    const [users, setUsers] = useState([]);
+    const [areas, setAreas] = useState([]);
     const [modalType, setModalType] = useState('');
     const [darkMode, setDarkMode] = useState(false);
 
@@ -25,11 +27,15 @@ const AppContext = (props) => {
     const ContextVal = {
 
         // PROPERTIES
+        areas: areas,
+        users: users,
         darkMode: darkMode,
         drawerWidth: "75px",
         modalType: modalType,
 
         // METHODS
+        setAreas: setAreas,
+        setUsers: setUsers,
         setDarkMode: setDarkMode,
         setModalType: setModalType
     };

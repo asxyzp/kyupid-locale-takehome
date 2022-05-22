@@ -15,7 +15,7 @@ const Analytics = (props) => {
         <>
             <SideDrawer />
             <PositionedScreen>
-                <Typography variant="h4">Analytics</Typography>
+                <Typography variant="h4">Dashboard</Typography>
             </PositionedScreen>
         </>
     );
