@@ -1,6 +1,6 @@
 # Kyupid analytics
 
-**Kyupid analytics** is an analytics app for understanding and making sense of the data from the Kyupid dating app. This project was built as a take home project for the frontend engineering position at locale.ai
+**Kyupid analytics** is an analytics app for understanding and making sense of the data from the Kyupid dating app. This app was built as a take home project for the frontend engineering position at locale.ai
 
 ## Available Scripts
 
