@@ -22,6 +22,7 @@ const AppContext = (props) => {
     const [areas, setAreas] = useState([]);
     const [modalType, setModalType] = useState('');
     const [darkMode, setDarkMode] = useState(false);
+    const [aggregateData, setAggregateData] = useState([]);
 
     // CONTEXT VALUE TO BE PASSED
     const ContextVal = {
@@ -32,12 +33,14 @@ const AppContext = (props) => {
         darkMode: darkMode,
         drawerWidth: "75px",
         modalType: modalType,
+        aggregateData: aggregateData,
 
         // METHODS
         setAreas: setAreas,
         setUsers: setUsers,
         setDarkMode: setDarkMode,
-        setModalType: setModalType
+        setModalType: setModalType,
+        setAggregateData: setAggregateData,
     };
 
     return (
