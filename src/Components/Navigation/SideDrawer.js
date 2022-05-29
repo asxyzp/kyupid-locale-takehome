@@ -28,21 +28,21 @@ const SideDrawer = (props) => {
         {
             label: "Home",
             unselectedIcon: <AssessmentOutlined />,
-            selectedIcon: <Assessment sx={{ color: "primary.dark" }} />,
+            selectedIcon: <Assessment sx={{ color: "primary.main" }} />,
             selectionCondition: location.pathname === "/",
             path: "/"
         },
         {
             label: "Map",
             unselectedIcon: <MapOutlined />,
-            selectedIcon: <Map sx={{ color: "primary.dark" }} />,
+            selectedIcon: <Map sx={{ color: "primary.main" }} />,
             selectionCondition: location.pathname === "/map",
             path: "/map"
         },
         {
             label: "About",
             unselectedIcon: <InfoOutlined />,
-            selectedIcon: <Info sx={{ color: "primary.dark" }} />,
+            selectedIcon: <Info sx={{ color: "primary.main" }} />,
             selectionCondition: location.pathname === "/about",
             path: "/about"
         }
@@ -59,7 +59,7 @@ const SideDrawer = (props) => {
 
     return (
         <Drawer anchor="left" variant="permanent" sx={{ "&> .MuiPaper-root": { width: drawerWidth, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" } }}>
-            <Typography variant="h4" sx={{ p: "8px", mt: "8px", borderRadius: "12.5px", fontFamily: "'Source Serif Pro', serif", fontWeight: "800", textAlign: "center", color: "common.white", bgcolor: "primary.dark" }}> Ky </Typography>
+            <Typography variant="h4" sx={{ p: "8px", mt: "8px", borderRadius: "12.5px", fontFamily: "'Source Serif Pro', serif", fontWeight: "800", textAlign: "center", color: "common.white", bgcolor: "primary.main" }}> Ky </Typography>
             <List sx={{ flexGrow: "1", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center", py: "0px", mt: "-15px" }}>
                 {
                     navMenuOptions.map((navMenuOption, navMenuOptionIndex) => {
@@ -72,7 +72,7 @@ const SideDrawer = (props) => {
                                             navMenuOption.unselectedIcon
                                     }
                                 </ListItemIcon>
-                                <ListItemText primary={navMenuOption.label} sx={{ "& .MuiListItemText-primary": { fontWeight: selectedNavItem === navMenuOptionIndex ? "800" : "400", color: selectedNavItem === navMenuOptionIndex ? "primary.dark" : "" } }} />
+                                <ListItemText primary={navMenuOption.label} sx={{ "& .MuiListItemText-primary": { fontWeight: selectedNavItem === navMenuOptionIndex ? "800" : "400", color: selectedNavItem === navMenuOptionIndex ? "primary.main" : "" } }} />
                             </ListItem>
                         );
                     })
