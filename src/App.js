@@ -1,15 +1,16 @@
 // IMPORTING PACKAGES/MODULES
+import './App.css';
 import DarkTheme from './Theme/Dark';
 import LightTheme from './Theme/Light';
-import React, { useEffect } from 'react';
 import Map from './Components/Screen/Map';
 import About from './Components/Screen/About';
 import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from './Context/AppContext';
 import Analytics from './Components/Screen/Analytics';
 import ModalRouter from './Components/Modal/ModalRouter';
-import { CssBaseline, ThemeProvider } from '@mui/material';
 import PageNotFound from './Components/Screen/PageNotFound';
+import { CssBaseline, Snackbar, Button, ThemeProvider } from '@mui/material';
 
 // IMPORTING API ENDPOINT CALL METHODS
 import getAreas from './API/getAreas';
@@ -23,7 +24,10 @@ import getUsers from './API/getUsers';
 function App() {
 
     // GETTING APP CONTEXT
-    const { darkMode, setAreas, setUsers, setModalType } = useAppContext();
+    const { users, areas, darkMode, setAreas, setUsers, setModalType } = useAppContext();
+
+    // SETTING LOCAL STATES
+    const [snackbarMessage, setSnackbarMessage] = useState(false);
 
     // METHODS
     /**
@@ -37,9 +41,14 @@ function App() {
                 if (res !== null && res.status === 200) {
                     const AreaData = await res.json();
                     setAreas([...AreaData.features]);
-                    console.log([...AreaData.features]);
                 }
-                // TODO: ADD ERROR HANDLER
+                else {
+                    setSnackbarMessage("An error occured while fetching area data");
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                setSnackbarMessage("An error occured while fetching area data");
             });
     };
 
@@ -54,9 +63,14 @@ function App() {
                 if (res !== null && res.status === 200) {
                     const UserData = await res.json();
                     setUsers([...UserData.users]);
-                    console.log(UserData.users);
                 }
-                // TODO: ADD ERROR HANDLER
+                else {
+                    setSnackbarMessage("An error occured while fetching user data");
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                setSnackbarMessage("An error occured while fetching user data");
             });
     };
 
@@ -73,16 +87,41 @@ function App() {
 
     }, []);
 
+    useEffect(() => {
+        if (users.length > 0 && areas.length > 0) {
+            console.log("ALL DATA HAS LOADED");
+        }
+    }, [areas.length, users.length]);
+
     return (
         <ThemeProvider theme={darkMode === true ? DarkTheme : LightTheme}>
             <CssBaseline />
+
+            {/* MODAL ROUTING COMPONENT */}
             <ModalRouter />
+
+            {/* CLIENT-SIDE ROUTES */}
             <Routes>
                 <Route path="/" element={<Analytics />} />
                 <Route path="/map" element={<Map />} />
                 <Route path="/about" element={<About />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
+
+            {/* SNACKBAR TO BE SHOWN WHEN THERE'S AN ERROR */}
+            <Snackbar
+                key={"bottomcenter"}
+                message={snackbarMessage}
+                open={snackbarMessage.length > 0}
+                onClose={() => { return false; }}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                action={<Button sx={{ fontWeight: "bolder", color: "primary.contrastText" }}>Refresh</Button>}
+                sx={{
+                    "&>.MuiPaper-root": {
+                        bgcolor: "primary.dark",
+                        color: "primary.contrastText"
+                    }
+                }} />
         </ThemeProvider>
     );
 };
