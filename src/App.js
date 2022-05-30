@@ -24,7 +24,7 @@ import getUsers from './API/getUsers';
 function App() {
 
     // GETTING APP CONTEXT
-    const { users, areas, darkMode, setAreas, setUsers, setModalType } = useAppContext();
+    const { users, areas, darkMode, setAreas, setUsers, setModalType, setAggregateData } = useAppContext();
 
     // SETTING LOCAL STATES
     const [snackbarMessage, setSnackbarMessage] = useState(false);
@@ -89,9 +89,55 @@ function App() {
 
     useEffect(() => {
         if (users.length > 0 && areas.length > 0) {
-            console.log("ALL DATA HAS LOADED");
+
+            // ADDING ADDITIONAL FIELDS IN THE AREA DATA
+            const newAreaData = areas.map((area)=>{
+                area.properties.total_user_count = users.length;
+                area.properties.total_pro_user_count = users.filter((user)=>{
+                    if(user.is_pro_user === true) return true;
+                    else return false;
+                }).length;
+                area.properties.total_male_user_count = users.filter((user)=>{
+                    if(user.gender === "M") return true;
+                    else return false;
+                }).length;
+                area.properties.total_female_user_count = users.filter((user)=>{
+                    if(user.gender === "F") return true;
+                    else return false;
+                }).length;
+                area.properties.area_male_pro_user_count = users.filter((user)=>{
+                    if(user.gender === "M" && user.is_pro_user === true) return true;
+                    else return false;
+                }).length;
+                area.properties.area_female_pro_user_count = users.filter((user)=>{
+                    if(user.gender === "F" && user.is_pro_user === true) return true;
+                    else return false;
+                }).length;
+                area.properties.area_users = users.filter((user)=>{
+                    if(user.area_id===area.properties.area_id) return true;
+                    else return false;
+                });
+                area.properties.area_male_users = users.filter((user)=>{
+                    if(user.area_id===area.properties.area_id && user.gender === "M") return true;
+                    else return false;
+                });
+                area.properties.area_female_users = users.filter((user)=>{
+                    if(user.area_id===area.properties.area_id && user.gender === "F") return true;
+                    else return false;
+                });
+                area.properties.area_male_pro_users = users.filter((user)=>{
+                    if(user.area_id===area.properties.area_id && user.gender === "M" && user.is_pro_user === true) return true;
+                    else return false;
+                });
+                area.properties.area_female_pro_users = users.filter((user)=>{
+                    if(user.area_id===area.properties.area_id && user.gender === "F" && user.is_pro_user === true) return true;
+                    else return false;
+                });
+                return area; 
+            });
+            setAggregateData(newAreaData);
         }
-    }, [areas.length, users.length]);
+    }, [areas, users]);
 
     return (
         <ThemeProvider theme={darkMode === true ? DarkTheme : LightTheme}>
@@ -118,7 +164,7 @@ function App() {
                 action={<Button sx={{ fontWeight: "bolder", color: "primary.contrastText" }}>Refresh</Button>}
                 sx={{
                     "&>.MuiPaper-root": {
-                        bgcolor: "primary.dark",
+                        bgcolor: "primary.main",
                         color: "primary.contrastText"
                     }
                 }} />
