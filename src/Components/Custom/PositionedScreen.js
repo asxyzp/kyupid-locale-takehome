@@ -17,15 +17,14 @@ const PositionedScreen = (props) => {
     return (
         <Box sx={{
             p: "10px",
+            height: "100%",
             display: "flex",
-            "height": "100%",
             alignItems: "start",
             flexDirection: "column",
             justifyContent: "start",
             marginLeft: drawerWidth,
             width: `calc(100vw - ${drawerWidth})`,
-        }
-        } >
+        }} >
             {props.children}
         </Box >
     );

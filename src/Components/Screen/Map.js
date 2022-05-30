@@ -26,7 +26,7 @@ const tooltip = (featureProperties) => {
     const areaMFRatio = (featureProperties.area_male_users.length / featureProperties.area_female_users.length).toFixed(2);
 
     return `<div style="font-family: ${Theme.typography.fontFamily};">
-                <div style="font-size: 1.2em; font-weight: bolder; color: ${Theme.palette.primary.dark};">${areaName}</div>
+                <div style="font-size: 1.2em; font-weight: bolder; color: ${Theme.palette.primary.main};">${areaName}</div>
                 <div><span style="font-weight: bold;">AREA USER COUNT</span> ${areaUserCount}</div>
                 <div><span style="font-weight: bold;">AREA MALE USER COUNT</span> ${areaMaleUserCount}</div>
                 <div><span style="font-weight: bold;">AREA FEMALE USER COUNT</span> ${areaFemaleUserCount}</div>
@@ -187,7 +187,7 @@ const Map = (props) => {
                 <TabPanel value={tabValue} index={0}>
                     {
                         aggregateData.length > 0 ?
-                            <MapContainer center={center} zoom={11} scrollWheelZoom={false}>
+                            <MapContainer center={center} zoom={11} scrollWheelZoom={false} sx={{ height: "100%", width: "100%" }}>
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -205,7 +205,7 @@ const Map = (props) => {
                 <TabPanel value={tabValue} index={1}>
                     {
                         aggregateData.length > 0 ?
-                            <MapContainer center={center} zoom={11} scrollWheelZoom={false}>
+                            <MapContainer center={center} zoom={11} scrollWheelZoom={false} sx={{ height: "100%", width: "100%" }}>
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -223,7 +223,7 @@ const Map = (props) => {
                 <TabPanel value={tabValue} index={2}>
                     {
                         aggregateData.length > 0 ?
-                            <MapContainer center={center} zoom={11} scrollWheelZoom={false}>
+                            <MapContainer center={center} zoom={11} scrollWheelZoom={false} sx={{ height: "100%", width: "100%" }}>
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
