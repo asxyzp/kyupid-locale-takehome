@@ -120,7 +120,7 @@ const TabPanel = (props) => {
             <Box
                 role="tabpanel"
                 id={`map-tabpanel-${index}`}
-                sx={{ width: "100%", flexGrow: "1" }}
+                sx={{ width: "100%", height: "100%" }}
                 {...other}>
                 {children}
             </Box>);
