@@ -91,49 +91,49 @@ function App() {
         if (users.length > 0 && areas.length > 0) {
 
             // ADDING ADDITIONAL FIELDS IN THE AREA DATA
-            const newAreaData = areas.map((area)=>{
+            const newAreaData = areas.map((area) => {
                 area.properties.total_user_count = users.length;
-                area.properties.total_pro_user_count = users.filter((user)=>{
-                    if(user.is_pro_user === true) return true;
+                area.properties.total_pro_user_count = users.filter((user) => {
+                    if (user.is_pro_user === true) return true;
                     else return false;
                 }).length;
-                area.properties.total_male_user_count = users.filter((user)=>{
-                    if(user.gender === "M") return true;
+                area.properties.total_male_user_count = users.filter((user) => {
+                    if (user.gender === "M") return true;
                     else return false;
                 }).length;
-                area.properties.total_female_user_count = users.filter((user)=>{
-                    if(user.gender === "F") return true;
+                area.properties.total_female_user_count = users.filter((user) => {
+                    if (user.gender === "F") return true;
                     else return false;
                 }).length;
-                area.properties.area_male_pro_user_count = users.filter((user)=>{
-                    if(user.gender === "M" && user.is_pro_user === true) return true;
+                area.properties.area_male_pro_user_count = users.filter((user) => {
+                    if (user.gender === "M" && user.is_pro_user === true) return true;
                     else return false;
                 }).length;
-                area.properties.area_female_pro_user_count = users.filter((user)=>{
-                    if(user.gender === "F" && user.is_pro_user === true) return true;
+                area.properties.area_female_pro_user_count = users.filter((user) => {
+                    if (user.gender === "F" && user.is_pro_user === true) return true;
                     else return false;
                 }).length;
-                area.properties.area_users = users.filter((user)=>{
-                    if(user.area_id===area.properties.area_id) return true;
+                area.properties.area_users = users.filter((user) => {
+                    if (user.area_id === area.properties.area_id) return true;
                     else return false;
                 });
-                area.properties.area_male_users = users.filter((user)=>{
-                    if(user.area_id===area.properties.area_id && user.gender === "M") return true;
+                area.properties.area_male_users = users.filter((user) => {
+                    if (user.area_id === area.properties.area_id && user.gender === "M") return true;
                     else return false;
                 });
-                area.properties.area_female_users = users.filter((user)=>{
-                    if(user.area_id===area.properties.area_id && user.gender === "F") return true;
+                area.properties.area_female_users = users.filter((user) => {
+                    if (user.area_id === area.properties.area_id && user.gender === "F") return true;
                     else return false;
                 });
-                area.properties.area_male_pro_users = users.filter((user)=>{
-                    if(user.area_id===area.properties.area_id && user.gender === "M" && user.is_pro_user === true) return true;
+                area.properties.area_male_pro_users = users.filter((user) => {
+                    if (user.area_id === area.properties.area_id && user.gender === "M" && user.is_pro_user === true) return true;
                     else return false;
                 });
-                area.properties.area_female_pro_users = users.filter((user)=>{
-                    if(user.area_id===area.properties.area_id && user.gender === "F" && user.is_pro_user === true) return true;
+                area.properties.area_female_pro_users = users.filter((user) => {
+                    if (user.area_id === area.properties.area_id && user.gender === "F" && user.is_pro_user === true) return true;
                     else return false;
                 });
-                return area; 
+                return area;
             });
             setAggregateData(newAreaData);
         }
@@ -161,7 +161,7 @@ function App() {
                 open={snackbarMessage.length > 0}
                 onClose={() => { return false; }}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                action={<Button sx={{ fontWeight: "bolder", color: "primary.contrastText" }}>Refresh</Button>}
+                action={<Button sx={{ fontWeight: "bolder", color: "primary.contrastText" }} onClick={() => window.reload()}>Refresh</Button>}
                 sx={{
                     "&>.MuiPaper-root": {
                         bgcolor: "primary.main",
