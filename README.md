@@ -20,34 +20,31 @@ Fonts:
 - Logo: Source Serif Pro
 
 ## App Directory Structure
-`
-/src/API => Contains API endpoint calls for /areas & /users
-/src/Assets => Contains image files used in the app
-/src/Components/Custom => Contains custom MUI components
-/src/Components/Modal => Contains modals & modal router
-/src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
-/src/Context => Contains app context used by Context API
-/src/Theme => Contains app theming 
-`
+- /src/API => Contains API endpoint calls for /areas & /users
+- /src/Assets => Contains image files used in the app
+- /src/Components/Custom => Contains custom MUI components
+- /src/Components/Modal => Contains modals & modal router
+- /src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
+- /src/Context => Contains app context used by Context API
+- /src/Theme => Contains app theming 
+
  ## Screens & Routing
- `
- / => Dashboard/analytics page => Analytics.js
- /map => Maps page => Map.js
- /about => About/information page => About.js
- else (*) => 404 page => PageNotFound.js 
- `
+- / => Dashboard/analytics page => Analytics.js
+- /map => Maps page => Map.js
+- /about => About/information page => About.js
+- else (*) => 404 page => PageNotFound.js 
+
 
 ## Technologies, Packages & External Resources Used
-`
-Language: JS
-Framework: React
-Fonts: Google Fonts
-Maps: React Leaflet
-Icons: Material Icons
-Component library: MUI
-Routing: react-router-dom
-State management: Context API
-`
+
+- Language: JS
+- Framework: React
+- Fonts: Google Fonts
+- Maps: React Leaflet
+- Icons: Material Icons
+- Component library: MUI
+- Routing: react-router-dom
+- State management: Context API
 
 ## Screenshots
 
