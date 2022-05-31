@@ -10,12 +10,12 @@
 
 ## Kyupid analytics brand guide
 
-Colors:
+**Colors**:
 - Primary: #01b26f
 - Secondary: #02b6bd
 - Error: #e84f10
 
-Fonts:
+**Fonts**:
 - App: Poppins
 - Logo: Source Serif Pro
 
