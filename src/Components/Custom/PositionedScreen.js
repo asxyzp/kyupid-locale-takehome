@@ -19,12 +19,14 @@ const PositionedScreen = (props) => {
             p: "10px",
             height: "100%",
             display: "flex",
+            overflowY: "auto",
+            overflowX: "hidden",
             alignItems: "start",
-            flexDirection: "column",
             justifyContent: "start",
             marginLeft: drawerWidth,
+            flexDirection: "column",
             width: `calc(100vw - ${drawerWidth})`,
-        }} >
+        }} className="positioned-screen">
             {props.children}
         </Box >
     );
