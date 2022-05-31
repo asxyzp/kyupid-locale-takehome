@@ -2,6 +2,47 @@
 
 **Kyupid analytics** is an analytics app for understanding and making sense of the data from the Kyupid dating app. This app was built as a take home project for the frontend engineering position at locale.ai
 
+## Map Color Coding
+
+- **Pro users per area (%)**: The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of pro users in the area.
+- **Male users per area (%)**: The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of male users in the area.
+- **Female users per area (%)**: The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of female users in the area.
+
+## App Directory Structure
+ /src/API => Contains API endpoint calls for /areas & /users
+ /src/Assets => Contains image files used in the app
+ /src/Components/Custom => Contains custom MUI components
+ /src/Components/Modal => Contains modals & modal router
+ /src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
+ /src/Context => Contains app context used by Context API
+ /src/Theme => Contains app theming 
+
+ ## Screens & Routing
+ / => Dashboard/analytics page => Analytics.js
+ /map => Maps page => Map.js
+ /about => About/information page => About.js
+ * => 404 page => PageNotFound.js
+
+## Technologies & Packages Used
+Language: JS
+Framework: React
+Maps: React Leaflet
+Icons: Material Icons
+Component library: MUI
+Routing: react-router-dom
+State management: Context API
+
+## Screenshots
+
+![Kyupid home](https://i.ibb.co/Cnvm0qN/kyupid-home.png)
+![alt text](https://i.ibb.co/QD4w4Ls/kyupid-map-1.png)
+![alt text](https://i.ibb.co/5MGGsBq/kyupid-map-2.png)
+![alt text](https://i.ibb.co/807jDyk/kyupid-map-3.png)
+![alt text](https://i.ibb.co/807jDyk/kyupid-map-3.png)
+![alt text](https://i.ibb.co/mB71246/kyupid-about.png)
+![alt text](https://i.ibb.co/3YCdZ1C/localhost-dark-mode.png)
+![alt text](https://i.ibb.co/8gkHbL6/kyupid-404.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
