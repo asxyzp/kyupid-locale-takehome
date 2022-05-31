@@ -42,7 +42,7 @@ const About = (props) => {
                             <ListItemIcon>
                                 <Girl sx={{ p: "5px", height: "30px", width: "30px", borderRadius: "4px", bgcolor: "primary.main", color: "common.white" }} />
                             </ListItemIcon>
-                            <ListItemText>Feale users per area (%): The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of female users in the area.</ListItemText>
+                            <ListItemText>Female users per area (%): The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of female users in the area.</ListItemText>
                         </ListItemButton>
                     </ListItem>
                 </List>
