@@ -40,8 +40,8 @@ const Analytics = (props) => {
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }}>Area name</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Area ID</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Pincode</TableCell>
+                                            <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">User Count</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">M/F Ratio</TableCell>
-                                            <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Users</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Pro Users</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Pro Male Users</TableCell>
                                             <TableCell sx={{ fontWeight: "bold", color: "primary.main" }} align="right">Pro Female Users</TableCell>
