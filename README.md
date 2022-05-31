@@ -10,26 +10,41 @@
 
 ## App Directory Structure
  /src/API => Contains API endpoint calls for /areas & /users
+ 
  /src/Assets => Contains image files used in the app
+ 
  /src/Components/Custom => Contains custom MUI components
+ 
  /src/Components/Modal => Contains modals & modal router
+ 
  /src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
+ 
  /src/Context => Contains app context used by Context API
+ 
  /src/Theme => Contains app theming 
 
  ## Screens & Routing
  / => Dashboard/analytics page => Analytics.js
+ 
  /map => Maps page => Map.js
+ 
  /about => About/information page => About.js
+ 
  * => 404 page => PageNotFound.js
 
 ## Technologies & Packages Used
 Language: JS
+
 Framework: React
+
 Maps: React Leaflet
+
 Icons: Material Icons
+
 Component library: MUI
+
 Routing: react-router-dom
+
 State management: Context API
 
 ## Screenshots
