@@ -8,44 +8,46 @@
 - **Male users per area (%)**: The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of male users in the area.
 - **Female users per area (%)**: The color of the various features of the map is the primary fillColor of the pallete (#01B26F), but the fillOpacity varies from 0-1 depending upon the % of female users in the area.
 
+## Kyupid analytics brand guide
+
+Colors:
+- Primary: #01b26f
+- Secondary: #02b6bd
+- Error: #e84f10
+
+Fonts:
+- App: Poppins
+- Logo: Source Serif Pro
+
 ## App Directory Structure
- /src/API => Contains API endpoint calls for /areas & /users
- 
- /src/Assets => Contains image files used in the app
- 
- /src/Components/Custom => Contains custom MUI components
- 
- /src/Components/Modal => Contains modals & modal router
- 
- /src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
- 
- /src/Context => Contains app context used by Context API
- 
- /src/Theme => Contains app theming 
-
+`
+/src/API => Contains API endpoint calls for /areas & /users
+/src/Assets => Contains image files used in the app
+/src/Components/Custom => Contains custom MUI components
+/src/Components/Modal => Contains modals & modal router
+/src/Components/Navigation => Contains navigation elements (e.g. SideDrawer)
+/src/Context => Contains app context used by Context API
+/src/Theme => Contains app theming 
+`
  ## Screens & Routing
+ `
  / => Dashboard/analytics page => Analytics.js
- 
  /map => Maps page => Map.js
- 
  /about => About/information page => About.js
- 
- else (*) => 404 page => PageNotFound.js
+ else (*) => 404 page => PageNotFound.js 
+ `
 
-## Technologies & Packages Used
+## Technologies, Packages & External Resources Used
+`
 Language: JS
-
 Framework: React
-
+Fonts: Google Fonts
 Maps: React Leaflet
-
 Icons: Material Icons
-
 Component library: MUI
-
 Routing: react-router-dom
-
 State management: Context API
+`
 
 ## Screenshots
 
