@@ -30,7 +30,7 @@
  
  /about => About/information page => About.js
  
- * => 404 page => PageNotFound.js
+ else (*) => 404 page => PageNotFound.js
 
 ## Technologies & Packages Used
 Language: JS
